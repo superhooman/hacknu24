@@ -1,8 +1,9 @@
-import { fetchForte } from "@src/scripts/forte";
-import { db } from "@src/server/db";
-import { cards } from "@src/server/db/schema";
-import { sql } from "drizzle-orm";
-import { NextResponse } from "next/server";
+import { sql } from 'drizzle-orm';
+import { NextResponse } from 'next/server';
+
+import { fetchForte } from '@src/scripts/forte';
+import { db } from '@src/server/db';
+import { cards } from '@src/server/db/schema';
 
 export const GET = async () => {
     const data = await fetchForte();
@@ -13,7 +14,7 @@ export const GET = async () => {
             ...data,
             updatedAt: sql`CURRENT_TIMESTAMP`,
         },
-    })
+    });
 
     return NextResponse.json(data);
 };

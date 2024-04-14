@@ -1,13 +1,15 @@
-import fetch from "node-fetch";
-import { Code, type Tag, type Item, type Token } from "./types";
-import { CITIES } from "@src/app/constants/cities";
+import fetch from 'node-fetch';
+
+import { CITIES } from '@src/app/constants/cities';
+
+import { Code, type Tag, type Item, type Token } from './types';
 
 const authorize = async () => {
     const t = new FormData;
-    t.append("grant_type", "client_credentials"),
-    t.append("scope", "sms_send"),
-    t.append("client_id", "halykbankkz"),
-    t.append("client_secret", "bCI7YdlOzC2h7LAgaZJJQArqhPpYQIIPtdXgdbi4zNqMVz1cVaVOyka2eTmlqSBH");
+    t.append('grant_type', 'client_credentials'),
+    t.append('scope', 'sms_send'),
+    t.append('client_id', 'halykbankkz'),
+    t.append('client_secret', 'bCI7YdlOzC2h7LAgaZJJQArqhPpYQIIPtdXgdbi4zNqMVz1cVaVOyka2eTmlqSBH');
 
     const token = (await fetch('https://oauth.homebank.kz/oauth2/token', {
         method: 'POST',
@@ -24,7 +26,7 @@ export const fetchHalykPartners = async (city: keyof typeof CITIES) => {
 
     console.log(token);
 
-    const items = (await fetch(`https://pelican-api.homebank.kz/halykclub-api/v1/terminal/devices?in_main_page=true`, {
+    const items = (await fetch('https://pelican-api.homebank.kz/halykclub-api/v1/terminal/devices?in_main_page=true', {
         headers: {
             Authorization: `Bearer ${token.access_token}`,
             City_id: `${halykId}`,

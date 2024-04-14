@@ -1,5 +1,7 @@
-import { env } from '@src/env';
 import OpenAI from 'openai';
+
+import { env } from '@src/env';
+
 import { cashbackSchema } from './schemas';
 
 const prompt = [
@@ -48,13 +50,13 @@ export const fetchForte = async () => {
 
     const completion = await openai.chat.completions.create({
         messages: [
-          {
-            role: 'user',
-            content: [
-              ...prompt,
-              data,
-            ].join('\n')
-          }
+            {
+                role: 'user',
+                content: [
+                    ...prompt,
+                    data,
+                ].join('\n')
+            }
         ],
         tools: [
             {
@@ -66,7 +68,7 @@ export const fetchForte = async () => {
                         type: 'object',
                         properties: {
                             json: {
-                                type: "object",
+                                type: 'object',
                             },
                         },
                         required: ['json'],

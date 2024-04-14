@@ -1,4 +1,4 @@
-import { type Bbox } from "@src/types/bbox";
+import { type Bbox } from '@src/types/bbox';
 
 export const CITIES = {
     ASTANA: {

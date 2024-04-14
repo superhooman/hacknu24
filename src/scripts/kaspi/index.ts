@@ -1,8 +1,10 @@
-import { CITIES } from "@src/app/constants/cities";
-import { divideBbox } from "@src/utils/divideBbox";
-import { type Response, featureSchema } from "./schemas";
-import fetch from "node-fetch";
-import { type Bbox } from "@src/types/bbox";
+import fetch from 'node-fetch';
+
+import { CITIES } from '@src/app/constants/cities';
+import { divideBbox } from '@src/utils/divideBbox';
+import { type Bbox } from '@src/types/bbox';
+
+import { type Response, featureSchema } from './schemas';
 
 const headers = new Headers({
     'Accept': '*/*',
@@ -39,7 +41,7 @@ const fetchPart = async (bbox: Bbox) => {
     }
 
     return json.data.filter(({ properties }) => properties.is_gold && properties.has_qr_terminal);
-}
+};
 
 export const fetchKaspiPartners = async (city: keyof typeof CITIES) => {
     const { bbox } = CITIES[city];
@@ -49,4 +51,4 @@ export const fetchKaspiPartners = async (city: keyof typeof CITIES) => {
     const items = (await Promise.all(bboxes.map(fetchPart))).flat();
 
     return items;
-}
+};

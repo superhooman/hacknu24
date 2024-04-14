@@ -1,5 +1,6 @@
-import { media } from "@src/styles/breakpoints";
-import { globalStyle, style } from "@vanilla-extract/css";
+import { globalStyle, style } from '@vanilla-extract/css';
+
+import { media } from '@src/styles/breakpoints';
 
 export const root = style({
     width: '100%',
@@ -49,7 +50,7 @@ export const card = style({
         }
     },
 
-    ":before": {
+    ':before': {
         opacity: 0.8,
     }
 });

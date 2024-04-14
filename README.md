@@ -1,7 +1,9 @@
 # hacknu24
 
 Track: BTSDigital
+
 Team: ThatCouple
+
 Title: Binoculars. Найди лучший кэшбэк
 
 # Getting started

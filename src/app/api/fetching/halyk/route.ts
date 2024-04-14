@@ -1,9 +1,10 @@
-import { halykCategoriesToMcc } from "@src/app/constants/categories";
-import { fetchHalykPartners } from "@src/scripts/halyk";
-import { db } from "@src/server/db";
-import { places } from "@src/server/db/schema";
-import { and, arrayOverlaps, eq, like, sql } from "drizzle-orm";
-import { NextResponse } from "next/server";
+import { and, arrayOverlaps, eq, like, sql } from 'drizzle-orm';
+import { NextResponse } from 'next/server';
+
+import { halykCategoriesToMcc } from '@src/app/constants/categories';
+import { fetchHalykPartners } from '@src/scripts/halyk';
+import { db } from '@src/server/db';
+import { places } from '@src/server/db/schema';
 
 export const GET = async () => {
     const data = await fetchHalykPartners('ASTANA');
@@ -25,7 +26,7 @@ export const GET = async () => {
             }, { place: existing[0]!, distance: Infinity });
 
             if (closest.distance < 0.001) {
-                await db.update(places).set({ halyk: item.tags, }).where(eq(places.id, closest.place.id))
+                await db.update(places).set({ halyk: item.tags, }).where(eq(places.id, closest.place.id));
                 return;
             }
         }
@@ -47,7 +48,7 @@ export const GET = async () => {
                 ...itemToInsert,
                 updatedAt: sql`CURRENT_TIMESTAMP`,
             },
-        })
+        });
     }));
 
     return NextResponse.json(data);

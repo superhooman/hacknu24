@@ -25,6 +25,6 @@ export interface Tag {
 }
 
 export enum Code {
-    Bonus = "bonus",
-    Phone = "phone",
+    Bonus = 'bonus',
+    Phone = 'phone',
 }

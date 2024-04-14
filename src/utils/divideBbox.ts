@@ -1,4 +1,4 @@
-import { type Bbox } from "@src/types/bbox";
+import { type Bbox } from '@src/types/bbox';
 
 export const divideBbox = (bbox: Bbox): Bbox[] => {
     const [minX, minY, maxX, maxY] = bbox;
@@ -11,4 +11,4 @@ export const divideBbox = (bbox: Bbox): Bbox[] => {
         [minX, middleY, middleX, maxY],
         [middleX, middleY, maxX, maxY],
     ];
-}
+};

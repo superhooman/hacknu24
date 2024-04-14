@@ -1,9 +1,10 @@
-import { kaspiCategoriesToMcc } from "@src/app/constants/categories";
-import { fetchKaspiPartners } from "@src/scripts/kaspi"
-import { db } from "@src/server/db";
-import { places } from "@src/server/db/schema";
-import { sql } from "drizzle-orm";
-import { NextResponse } from "next/server";
+import { sql } from 'drizzle-orm';
+import { NextResponse } from 'next/server';
+
+import { kaspiCategoriesToMcc } from '@src/app/constants/categories';
+import { fetchKaspiPartners } from '@src/scripts/kaspi';
+import { db } from '@src/server/db';
+import { places } from '@src/server/db/schema';
 
 export const GET = async () => {
     const data = await fetchKaspiPartners('ASTANA');
@@ -27,7 +28,7 @@ export const GET = async () => {
                 ...item,
                 updatedAt: sql`CURRENT_TIMESTAMP`,
             },
-        })
+        });
     }));
 
     return NextResponse.json(data);
