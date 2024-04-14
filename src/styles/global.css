@@ -1,0 +1,24 @@
+html, body {
+    height: 100%;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent; 
+}
+
+.radix-themes[data-is-root-theme="true"] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rt-ScrollAreaViewport > div {
+    display: block!important;
+    width: 100%;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    :root:not(.dark):not(.dark-theme) {
+        --color-page-background: var(--mauve-1);
+    }
+}
