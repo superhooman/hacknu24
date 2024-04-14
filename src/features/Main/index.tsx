@@ -54,7 +54,7 @@ const position = { lat: 51.08921, lng: 71.406651 };
 export const Main: React.FC<
   React.PropsWithChildren<{ items: Place[]; cards: Card[] }>
 > = ({ items, cards }) => {
-    const [userCards, setUserCards] = useLocalStorage<string[]>('cards', ['kaspi']);
+    const [userCards, setUserCards] = useLocalStorage<string[]>('cards', ['kaspi', 'halyk', 'forte']);
     const [open, setOpen] = React.useState(false);
     const [settingsOpen, setSettingsOpen] = React.useState(false);
     const [selected, setSelected] = React.useState<Place | null>(null);
