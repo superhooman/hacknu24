@@ -30,7 +30,7 @@ export default function RootLayout({
                 <link rel="manifest" href="/site.webmanifest" />
                 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f1bf42" />
                 <meta name="msapplication-TileColor" content="#f1bf42" />
-                <meta name="theme-color" content="#f1bf42" />
+                <meta name="theme-color" content="#101010" />
             </head>
             <body className={inter.className}>
                 <Providers>
