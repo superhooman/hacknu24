@@ -40,13 +40,14 @@ export const card = style({
     position: 'absolute',
     top: 'var(--space-4)',
     left: 'var(--space-4)',
-    minWidth: 320,
+    minWidth: 400,
     zIndex: 1,
     backdropFilter: 'blur(10px)',
 
     '@media': {
         [media.down('sm')]: {
             width: 'calc(100% - var(--space-4) * 2)',
+            minWidth: 'unset',
         }
     },
 

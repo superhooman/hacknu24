@@ -65,12 +65,7 @@ export const content = style({
     backgroundColor: 'var(--color-panel)',
 
     '@media': {
-        [media.down('xs')]: {
-            maxHeight: 'unset',
-            height: '100dvh',
-            borderRadius: 0,
-        },
-        [media.up('xs')]: {
+        [media.up('sm')]: {
             selectors: {
                 ...(Object.entries(breakpoints).reduce((acc, [key, value]) => ({
                     ...acc,
@@ -80,5 +75,19 @@ export const content = style({
                 }), {})),
             }
         },
+        [media.down('sm')]: {
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            maxHeight: 'unset',
+            height: '100dvh',
+            borderRadius: 0,
+            maxWidth: '100%!important',
+        },
     }
+});
+
+globalStyle('.rt-BaseDialogOverlay .rt-BaseDialogScrollPadding', {
+    padding: 0,
 });

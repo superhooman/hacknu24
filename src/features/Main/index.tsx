@@ -157,7 +157,7 @@ export const Main: React.FC<
     return (
         <>
             <Map items={items} onClick={handleSelect} />
-            <Navbar userCards={userCards} onCardsOpen={handleOpen} />
+            <Navbar userCards={userCards} onCardsOpen={handleOpen} items={items} onSelect={handleSelect} />
             <Modal open={open} onOpenChange={setOpen}>
                 {selected ? (
                     <>
@@ -179,7 +179,7 @@ export const Main: React.FC<
                         </Flex>
                         <Flex direction="column">
                             {getCardItems(selected).map((item, index) => (
-                                <CardItem key={index} {...item} />
+                                <CardItem key={index} selected={index === 0} {...item} />
                             ))}
                         </Flex>
                     </>
@@ -209,7 +209,7 @@ export const Main: React.FC<
                         size="4"
                         onClick={handleClose}
                     >
-            Закрыть
+                        Закрыть
                     </Button>
                 </Flex>
             </Modal>
@@ -222,6 +222,7 @@ interface CardItemProps {
   value: number;
   addPlus?: boolean;
   description?: string;
+  selected?: boolean;
 }
 
 export const CardItem: React.FC<CardItemProps> = ({
@@ -229,11 +230,12 @@ export const CardItem: React.FC<CardItemProps> = ({
     value,
     description,
     addPlus,
+    selected,
 }) => (
     <Flex className={cls.item} align="center" justify="between">
         {icon}
         <Flex gap="1" align="end" direction="column">
-            <Badge color="gray" size={description ? '1' : '3'}>
+            <Badge color={selected ? 'amber' : 'gray'} size={description ? '1' : '3'}>
                 {addPlus ? '+' : ''}
                 {value}%
             </Badge>
